@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "673437472199",
+    "project_id": "redandwhite-2b317",
+    "storage_bucket": "redandwhite-2b317.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673437472199:android:91e7562b0b4b263a2535e2",
+        "android_client_info": {
+          "package_name": "com.redandwhite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673437472199-ol4hth0b4g8uord8f40kilv1p77uu1hp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3olHQCTKPFubqE4QYtAn9LELcgouSZ1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673437472199-ol4hth0b4g8uord8f40kilv1p77uu1hp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "673437472199-4eqn0qg5d4r7s1k2qb3vihkc83s0bt8s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.RedAndWhite"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,31 @@
+export const INCREMENT_COUNTER = "INCREMENT_COUNTER"
+export const DECREMENT_COUNTER = "DECREMENT_COUNTER"
+
+// user
+
+export const EMAIL_USER = 'EMAIL_USER';
+export const SIGNIN_SUCCESS = 'SIGNIN_SUCCESS';
+export const SIGNIN_ERROR = 'SIGNIN_ERROR';
+export const AUTH_ERROR = 'AUTH_ERROR';
+export const SIGNOUT_USER = "SIGNOUT_USER";
+export const RESET_PASSWORD = "RESET_PASSWORD";
+export const PHONE_USER = "PHONE_USER";
+export const OTP = "OTP";
+export const GOOGLE_USER = "GOOGLE_USER"
+
+// product
+
+export const LOADING_PRODUCT = 'LOADING_PRODUCT';
+export const ERROR_PRODUCT = 'ERROR_PRODUCT';
+
+export const GET_PRODUCT = 'GET_PRODUCT';
+export const RETRIEVED_PRODUCT = "RETRIEVED_PRODUCT";
+
+export const POST_PRODUCT = 'POST_PRODUCT';
+export const INSERTED_PRODUCT = "INSERTED_PRODUCT"
+
+export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
+export const UPDATED_PRODUCT = "UPDATED_PRODUCT";
+
+export const DELETE_PRODUCT = 'DELETE_PRODUCT';
+export const DELETED_PRODUCT = "DELETED_PRODUCT";

@@ -1,4 +1,4 @@
-module Pods_RedAndWhite_RedAndWhiteTests {
+framework module Pods_RedAndWhite_RedAndWhiteTests {
   umbrella header "Pods-RedAndWhite-RedAndWhiteTests-umbrella.h"
 
   export *
