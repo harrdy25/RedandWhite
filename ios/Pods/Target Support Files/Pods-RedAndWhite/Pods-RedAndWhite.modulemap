@@ -1,0 +1,6 @@
+module Pods_RedAndWhite {
+  umbrella header "Pods-RedAndWhite-umbrella.h"
+
+  export *
+  module * { export * }
+}
