@@ -39,7 +39,7 @@ const SignUp = ({ navigation }) => {
         <View style={{ alignItems: "center" }}>
           <Image style={styles.Logo} source={images.IMG_AVATAR_PNG} />
         </View>
-        <Text style={styles.SignUp}>SIGN UP</Text>
+        <Text style={styles.SignUp}>SIGN UPPPPP</Text>
         <View style={styles.NameBox}>
           <TextInput
             style={styles.Name}

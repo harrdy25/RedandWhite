@@ -10,6 +10,13 @@ import {
   ScrollView,
 } from "react-native";
 import Entypo from "react-native-vector-icons/Entypo";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  deleteProduct,
+  fetchProduct,
+  insertProduct,
+  updateProduct,
+} from "../redux/action/product.action";
 
 const Product = ({ navigation }) => {
   const [name, setName] = useState("");
@@ -18,6 +25,106 @@ const Product = ({ navigation }) => {
   const [area, setArea] = useState("");
   const [button, setButton] = useState(0);
   const [id, setId] = useState(0);
+
+  const product = useSelector((state) => state.Product);
+  const dispatch = useDispatch();
+
+  console.log(("SDSds0", product));
+
+  const handleSubmit = () => {
+    if (!(name == "" || info == "" || price == "" || area == "")) {
+      let productData = {
+        name,
+        info,
+        price,
+        area,
+      };
+      dispatch(insertProduct(productData));
+      setName("");
+      setInfo("");
+      setArea("");
+      setPrice("");
+      setButton(0);
+    }
+  };
+
+  useEffect(() => {
+    dispatch(fetchProduct());
+  }, []);
+
+  const handleDelete = (id) => {
+    Alert.alert("Delete", "Are you sure you want to delete this Item", [
+      {
+        text: "Cancel",
+      },
+      { text: "OK", onPress: () => dispatch(deleteProduct(id)) },
+    ]);
+  };
+
+  const productEdit = (id) => {
+    let fData = product.product.filter((item) => item.id === id);
+    setName(fData[0].name);
+    setInfo(fData[0].info);
+    setArea(fData[0].area);
+    setPrice(fData[0].price);
+    setButton(1);
+    setId(id);
+  };
+
+  const updateDataSubmit = () => {
+    let pData = {
+      id: id,
+      name,
+      info,
+      price,
+      area,
+    };
+    dispatch(updateProduct(pData));
+    setName("");
+    setInfo("");
+    setArea("");
+    setPrice("");
+    setButton(0);
+  };
+
+  const renderItem = ({ item }) => {
+    return (
+      <View style={styles.Box}>
+        <View style={{ flexDirection: "row", margin: 10 }}>
+          <Text style={styles.NameTitle}>{item.name}</Text>
+          <Text style={styles.Price}>₹ {item.price}</Text>
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <View style={{ flex: 1, marginLeft: 10 }}>
+            <Text style={styles.Information}>{item.info}</Text>
+            <Text style={styles.Information}>{item.area}</Text>
+          </View>
+          <View style={{ flexDirection: "row", alignSelf: "center" }}>
+            <TouchableOpacity onPress={() => handleDelete(item.id)}>
+              <Entypo
+                name="cross"
+                size={35}
+                color={"red"}
+                style={styles.Icon}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                productEdit(item.id);
+              }}
+            >
+              <Entypo
+                name="edit"
+                size={30}
+                color={"gray"}
+                style={styles.Icon}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    );
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
@@ -76,14 +183,27 @@ const Product = ({ navigation }) => {
               />
             </View>
             {button ? (
-              <TouchableOpacity style={styles.SubmitBox}>
+              <TouchableOpacity
+                style={styles.SubmitBox}
+                onPress={() => updateDataSubmit()}
+              >
                 <Text style={styles.Submit}>Update Submit</Text>
               </TouchableOpacity>
             ) : (
-              <TouchableOpacity style={styles.SubmitBox}>
+              <TouchableOpacity
+                style={styles.SubmitBox}
+                onPress={() => handleSubmit()}
+              >
                 <Text style={styles.Submit}>Submit</Text>
               </TouchableOpacity>
             )}
+            <View>
+              <FlatList
+                data={product.product}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.id}
+              />
+            </View>
           </>
         </ScrollView>
       </View>
